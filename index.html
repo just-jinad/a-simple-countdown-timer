@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap-5.2.2-dist/css/bootstrap.css">
+    <title>Count Down Timer</title>
+</head>
+
+<body>
+    <div class="mt-4 container col-5 ">
+        <h3>Count Down Timer</h3>
+        <input class="form-control my-3" type="number" placeholder="seconds" id="sec">
+        <input class="form-control my-3" type="number" placeholder="minutes" id="min">
+        <input class="form-control my-3" type="number" placeholder="hour" id="hr">
+        <button class="btn btn-info mt-1" onclick="beginTimer()">Start</button>
+        <button class="btn btn-warning mt-1" onclick="timer()">pause</button>
+    </div>
+    <script>
+        const beginTimer = () => {
+            if (sec.value > 0) {
+                sec.value--
+
+                halt = setTimeout(beginTimer, 1000)
+            }
+            else {
+                if (min.value > 0) {
+                    min.value--
+                    sec.value = 59
+                    setTimeout(beginTimer, 1000)
+                }
+                else {
+                    if (hr.value > 0) {
+                        hr.value--
+                        min.value = 60
+                        sec.value = 59
+                        min.value = --
+                            setTimeout(beginTimer, 1000)
+                    }
+                }
+            }
+        }
+
+        const timer = () => {
+            clearInterval(halt)
+        }
+    </script>
+</body>
+
+</html>
